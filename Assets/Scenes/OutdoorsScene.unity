@@ -408,7 +408,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1317236382
+--- !u!1001 &1673527324
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -418,15 +418,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06691259
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000023841858
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.2617042
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -460,22 +460,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Euzinho
       objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3116698341810118939, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: a897697664c1f4885bfa2c0f9d3e5645, type: 2}
-    - target: {fileID: 7303385476813375300, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -880,4 +868,4 @@ SceneRoots:
   - {fileID: 432432461}
   - {fileID: 2013410475}
   - {fileID: 2119396498}
-  - {fileID: 1317236382}
+  - {fileID: 1673527324}
