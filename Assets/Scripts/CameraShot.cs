@@ -23,6 +23,15 @@ public class CameraShot
     [ConditionalHide("shotType", 1, 3, 5, 6, 8)] // Movement, MovementWithPan, DollyPath, FreeRotation, CustomSequence
     public RotationType rotationType = RotationType.UseTransformRotation;
     
+    [ConditionalHide("rotationType", 2)] // FreeRotation
+    public Vector3 customRotationStart = Vector3.zero;
+    
+    [ConditionalHide("rotationType", 2)] // FreeRotation
+    public Vector3 customRotationEnd = Vector3.zero;
+    
+    [ConditionalHide("rotationType", 2)] // FreeRotation
+    public bool useLocalRotation = false;
+    
     [Header("Look At System")]
     [ConditionalHide("shotType", 0, 1, 4, 5, 7, 8)] // Static, Movement, OrbitAround, DollyPath, LookAtOnly, CustomSequence
     public bool useLookAt = false;
@@ -70,7 +79,24 @@ public class CameraShot
     [ConditionalHide("shotType", 2, 3)] // Pan, MovementWithPan
     public AnimationCurve panCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     
-    [Header("Advanced Settings")]
+    [Header("Shot-Specific Rotation")]
+    [ConditionalHide("shotType", 0)] // Static
+    public Vector3 staticRotationOverride = Vector3.zero;
+    
+    [ConditionalHide("shotType", 0)] // Static
+    public bool useStaticRotationOverride = false;
+    
+    [ConditionalHide("shotType", 2)] // Pan
+    public Vector3 panRotationOffset = Vector3.zero;
+    
+    [ConditionalHide("shotType", 4)] // OrbitAround
+    public Vector3 orbitLookOffset = Vector3.zero;
+    
+    [ConditionalHide("shotType", 4)] // OrbitAround
+    public bool maintainOrbitHeight = true;
+    
+    [ConditionalHide("shotType", 7)] // LookAtOnly
+    public Vector3 lookAtRotationOffset = Vector3.zero;
     [ConditionalHide("useLookAt", true)]
     public bool smoothLookAt = true;
     
@@ -99,9 +125,10 @@ public class CameraShot
     {
         UseTransformRotation,    // Use the rotation of start/end transforms
         LookAtTarget,           // Always look at the lookAtTarget
-        FreeRotation,           // Rotate by specified angles
+        FreeRotation,           // Rotate by specified angles (Euler)
         FollowMovementDirection, // Look in the direction of movement
-        KeepCurrentRotation     // Don't change rotation
+        KeepCurrentRotation,     // Don't change rotation
+        CustomEulerAngles       // Use custom Euler angles for precise control
     }
     
     // Constructor
@@ -123,5 +150,16 @@ public class CameraShot
         lookAtSpeed = 2f;
         waitAtEnd = false;
         waitDuration = 1f;
+        
+        // Rotation overrides
+        customRotationStart = Vector3.zero;
+        customRotationEnd = Vector3.zero;
+        useLocalRotation = false;
+        staticRotationOverride = Vector3.zero;
+        useStaticRotationOverride = false;
+        panRotationOffset = Vector3.zero;
+        orbitLookOffset = Vector3.zero;
+        maintainOrbitHeight = true;
+        lookAtRotationOffset = Vector3.zero;
     }
 }

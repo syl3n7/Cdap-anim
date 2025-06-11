@@ -182,11 +182,51 @@ public class CameraSystem : MonoBehaviour
         // Set position
         virtualCamera.transform.position = shot.startPosition.position;
         
-        // Handle rotation based on type
-        SetCameraRotation(shot, 0f);
+        // Handle rotation based on type or override
+        if (shot.useStaticRotationOverride)
+        {
+            virtualCamera.transform.rotation = Quaternion.Euler(shot.staticRotationOverride);
+        }
+        else
+        {
+            SetCameraRotation(shot, 0f);
+        }
         
-        // Hold for duration
-        yield return new WaitForSeconds(shot.duration);
+        // Handle look-at if enabled
+        if (shot.useLookAt && shot.lookAtTarget != null)
+        {
+            float elapsed = 0f;
+            while (elapsed < shot.duration)
+            {
+                if (shot.continuousLookAt)
+                {
+                    Vector3 direction = (shot.lookAtTarget.position - virtualCamera.transform.position).normalized;
+                    if (direction != Vector3.zero)
+                    {
+                        Quaternion targetRot = Quaternion.LookRotation(direction);
+                        if (shot.smoothLookAt)
+                        {
+                            virtualCamera.transform.rotation = Quaternion.Slerp(
+                                virtualCamera.transform.rotation, 
+                                targetRot, 
+                                Time.deltaTime * shot.lookAtSpeed
+                            );
+                        }
+                        else
+                        {
+                            virtualCamera.transform.rotation = targetRot;
+                        }
+                    }
+                }
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+        }
+        else
+        {
+            // Hold for duration
+            yield return new WaitForSeconds(shot.duration);
+        }
     }
     
     private IEnumerator ExecuteMovementShot(CameraShot shot)
@@ -269,14 +309,36 @@ public class CameraSystem : MonoBehaviour
             float t = shot.panCurve.Evaluate(elapsed / shot.duration);
             
             Vector3 targetPos = Vector3.Lerp(shot.panStartTarget.position, shot.panEndTarget.position, t);
-            virtualCamera.transform.LookAt(targetPos);
+            Vector3 direction = (targetPos - virtualCamera.transform.position).normalized;
+            
+            if (direction != Vector3.zero)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(direction);
+                
+                // Apply rotation offset if specified
+                if (shot.panRotationOffset != Vector3.zero)
+                {
+                    lookRotation *= Quaternion.Euler(shot.panRotationOffset);
+                }
+                
+                virtualCamera.transform.rotation = lookRotation;
+            }
             
             elapsed += Time.deltaTime;
             yield return null;
         }
         
-        // Final look
-        virtualCamera.transform.LookAt(shot.panEndTarget.position);
+        // Final look with offset
+        Vector3 finalDirection = (shot.panEndTarget.position - virtualCamera.transform.position).normalized;
+        if (finalDirection != Vector3.zero)
+        {
+            Quaternion finalRotation = Quaternion.LookRotation(finalDirection);
+            if (shot.panRotationOffset != Vector3.zero)
+            {
+                finalRotation *= Quaternion.Euler(shot.panRotationOffset);
+            }
+            virtualCamera.transform.rotation = finalRotation;
+        }
     }
     
     private IEnumerator ExecuteMovementWithPanShot(CameraShot shot)
@@ -334,13 +396,31 @@ public class CameraSystem : MonoBehaviour
             // Calculate orbit position
             Vector3 orbitPos = centerPos + Quaternion.AngleAxis(currentAngle, shot.orbitAxis) * 
                               (Vector3.forward * shot.orbitRadius);
-            orbitPos.y = shot.startPosition.position.y; // Maintain height
+            
+            // Maintain height or use start position height
+            if (shot.maintainOrbitHeight)
+            {
+                orbitPos.y = shot.startPosition.position.y;
+            }
             
             virtualCamera.transform.position = orbitPos;
             
             // Look at center or specified target
             Transform lookTarget = shot.useLookAt && shot.lookAtTarget != null ? shot.lookAtTarget : shot.orbitCenter;
-            virtualCamera.transform.LookAt(lookTarget.position);
+            Vector3 lookDirection = (lookTarget.position - virtualCamera.transform.position).normalized;
+            
+            if (lookDirection != Vector3.zero)
+            {
+                Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
+                
+                // Apply look offset if specified
+                if (shot.orbitLookOffset != Vector3.zero)
+                {
+                    lookRotation *= Quaternion.Euler(shot.orbitLookOffset);
+                }
+                
+                virtualCamera.transform.rotation = lookRotation;
+            }
             
             elapsed += Time.deltaTime;
             yield return null;
@@ -411,9 +491,20 @@ public class CameraSystem : MonoBehaviour
             yield break;
         }
         
-        // Set position and look at target
+        // Set position
         virtualCamera.transform.position = shot.startPosition.position;
-        virtualCamera.transform.LookAt(shot.lookAtTarget.position);
+        
+        // Initial look at target with offset
+        Vector3 direction = (shot.lookAtTarget.position - virtualCamera.transform.position).normalized;
+        if (direction != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            if (shot.lookAtRotationOffset != Vector3.zero)
+            {
+                lookRotation *= Quaternion.Euler(shot.lookAtRotationOffset);
+            }
+            virtualCamera.transform.rotation = lookRotation;
+        }
         
         // Hold and continuously look if needed
         float elapsed = 0f;
@@ -421,7 +512,28 @@ public class CameraSystem : MonoBehaviour
         {
             if (shot.continuousLookAt)
             {
-                virtualCamera.transform.LookAt(shot.lookAtTarget.position);
+                Vector3 currentDirection = (shot.lookAtTarget.position - virtualCamera.transform.position).normalized;
+                if (currentDirection != Vector3.zero)
+                {
+                    Quaternion targetRotation = Quaternion.LookRotation(currentDirection);
+                    if (shot.lookAtRotationOffset != Vector3.zero)
+                    {
+                        targetRotation *= Quaternion.Euler(shot.lookAtRotationOffset);
+                    }
+                    
+                    if (shot.smoothLookAt)
+                    {
+                        virtualCamera.transform.rotation = Quaternion.Slerp(
+                            virtualCamera.transform.rotation, 
+                            targetRotation, 
+                            Time.deltaTime * shot.lookAtSpeed
+                        );
+                    }
+                    else
+                    {
+                        virtualCamera.transform.rotation = targetRotation;
+                    }
+                }
             }
             
             elapsed += Time.deltaTime;
@@ -472,19 +584,6 @@ public class CameraSystem : MonoBehaviour
         switch (shot.rotationType)
         {
             case CameraShot.RotationType.UseTransformRotation:
-                virtualCamera.transform.rotation = shot.startPosition.rotation;
-                break;
-                
-            case CameraShot.RotationType.LookAtTarget:
-                if (shot.lookAtTarget != null)
-                    virtualCamera.transform.LookAt(shot.lookAtTarget.position);
-                break;
-                
-            case CameraShot.RotationType.KeepCurrentRotation:
-                // Do nothing - keep current rotation
-                break;
-                
-            case CameraShot.RotationType.FreeRotation:
                 if (shot.endPosition != null)
                 {
                     float rotT = shot.rotationCurve.Evaluate(t);
@@ -493,6 +592,82 @@ public class CameraSystem : MonoBehaviour
                         shot.endPosition.rotation, 
                         rotT
                     );
+                }
+                else
+                {
+                    virtualCamera.transform.rotation = shot.startPosition.rotation;
+                }
+                break;
+                
+            case CameraShot.RotationType.LookAtTarget:
+                if (shot.lookAtTarget != null)
+                {
+                    Vector3 direction = (shot.lookAtTarget.position - virtualCamera.transform.position).normalized;
+                    if (direction != Vector3.zero)
+                    {
+                        Quaternion lookRotation = Quaternion.LookRotation(direction);
+                        if (shot.smoothLookAt)
+                        {
+                            virtualCamera.transform.rotation = Quaternion.Slerp(
+                                virtualCamera.transform.rotation, 
+                                lookRotation, 
+                                Time.deltaTime * shot.lookAtSpeed
+                            );
+                        }
+                        else
+                        {
+                            virtualCamera.transform.rotation = lookRotation;
+                        }
+                    }
+                }
+                break;
+                
+            case CameraShot.RotationType.KeepCurrentRotation:
+                // Do nothing - keep current rotation
+                break;
+                
+            case CameraShot.RotationType.FreeRotation:
+            case CameraShot.RotationType.CustomEulerAngles:
+                if (shot.endPosition != null)
+                {
+                    float rotT = shot.rotationCurve.Evaluate(t);
+                    
+                    if (shot.rotationType == CameraShot.RotationType.CustomEulerAngles)
+                    {
+                        // Use custom Euler angles
+                        Vector3 startEuler = shot.customRotationStart;
+                        Vector3 endEuler = shot.customRotationEnd;
+                        Vector3 currentEuler = Vector3.Lerp(startEuler, endEuler, rotT);
+                        
+                        if (shot.useLocalRotation)
+                        {
+                            virtualCamera.transform.localRotation = Quaternion.Euler(currentEuler);
+                        }
+                        else
+                        {
+                            virtualCamera.transform.rotation = Quaternion.Euler(currentEuler);
+                        }
+                    }
+                    else
+                    {
+                        // Use transform rotations
+                        virtualCamera.transform.rotation = Quaternion.Lerp(
+                            shot.startPosition.rotation, 
+                            shot.endPosition.rotation, 
+                            rotT
+                        );
+                    }
+                }
+                break;
+                
+            case CameraShot.RotationType.FollowMovementDirection:
+                if (shot.endPosition != null)
+                {
+                    Vector3 moveDirection = (shot.endPosition.position - shot.startPosition.position).normalized;
+                    if (moveDirection != Vector3.zero)
+                    {
+                        virtualCamera.transform.rotation = Quaternion.LookRotation(moveDirection);
+                    }
                 }
                 break;
         }
