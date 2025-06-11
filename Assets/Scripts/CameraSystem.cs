@@ -17,9 +17,19 @@ public class CameraSystem : MonoBehaviour
     public float delayBetweenShots = 0.5f;
     public bool showShotProgressInConsole = true;
     
+    [Header("Shot Selection & Preview")]
+    public int selectedShotIndex = -1;
+    public bool highlightSelectedShot = true;
+    public bool showOnlySelectedShot = false;
+    
     [Header("Debug")]
     public bool showGizmos = true;
     public bool showShotPaths = true;
+    public bool showCameraFrustum = true;
+    public bool showLookDirections = true;
+    public bool showTargetConnections = true;
+    public float frustumSize = 2f;
+    public float lookDirectionLength = 3f;
     
     // Runtime variables
     private int currentShotIndex = 0;
@@ -81,6 +91,64 @@ public class CameraSystem : MonoBehaviour
             StopSequence();
             currentShotIndex = shotIndex;
             PlaySpecificShot(shotIndex);
+        }
+    }
+    
+    [ContextMenu("Select Next Shot")]
+    public void SelectNextShot()
+    {
+        if (shots.Count > 0)
+        {
+            selectedShotIndex = (selectedShotIndex + 1) % shots.Count;
+            if (showShotProgressInConsole)
+                Debug.Log($"[CameraSystem] Selected Shot {selectedShotIndex + 1}: '{shots[selectedShotIndex].shotName}'");
+        }
+    }
+    
+    [ContextMenu("Select Previous Shot")]
+    public void SelectPreviousShot()
+    {
+        if (shots.Count > 0)
+        {
+            selectedShotIndex = selectedShotIndex <= 0 ? shots.Count - 1 : selectedShotIndex - 1;
+            if (showShotProgressInConsole)
+                Debug.Log($"[CameraSystem] Selected Shot {selectedShotIndex + 1}: '{shots[selectedShotIndex].shotName}'");
+        }
+    }
+    
+    public void SelectShot(int shotIndex)
+    {
+        if (shotIndex >= 0 && shotIndex < shots.Count)
+        {
+            selectedShotIndex = shotIndex;
+            if (showShotProgressInConsole)
+                Debug.Log($"[CameraSystem] Selected Shot {shotIndex + 1}: '{shots[shotIndex].shotName}'");
+        }
+    }
+    
+    [ContextMenu("Preview Selected Shot")]
+    public void PreviewSelectedShot()
+    {
+        if (selectedShotIndex >= 0 && selectedShotIndex < shots.Count && !isPlayingSequence)
+        {
+            PlaySpecificShot(selectedShotIndex);
+        }
+    }
+
+    [ContextMenu("Jump to Selected Shot")]
+    public void JumpToSelectedShot()
+    {
+        if (selectedShotIndex >= 0 && selectedShotIndex < shots.Count)
+        {
+            CameraShot shot = shots[selectedShotIndex];
+            if (shot.startPosition != null)
+            {
+                virtualCamera.transform.position = shot.startPosition.position;
+                virtualCamera.transform.rotation = shot.startPosition.rotation;
+                
+                if (showShotProgressInConsole)
+                    Debug.Log($"[CameraSystem] Jumped to Shot {selectedShotIndex + 1}: '{shot.shotName}'");
+            }
         }
     }
     
@@ -681,26 +749,81 @@ public class CameraSystem : MonoBehaviour
     {
         if (!showGizmos || shots == null) return;
         
+        // Validate selected shot index
+        if (selectedShotIndex >= shots.Count) selectedShotIndex = -1;
+        
         for (int i = 0; i < shots.Count; i++)
         {
             CameraShot shot = shots[i];
             if (shot.startPosition == null) continue;
             
-            // Color code by shot type
+            // Skip non-selected shots if showing only selected
+            if (showOnlySelectedShot && selectedShotIndex != -1 && i != selectedShotIndex)
+                continue;
+            
+            // Determine if this shot is selected
+            bool isSelected = (i == selectedShotIndex);
+            bool isCurrentlyPlaying = (i == currentShotIndex && isPlayingSequence);
+            
+            // Color code by shot type with selection highlighting
             Color shotColor = GetShotTypeColor(shot.shotType);
+            if (isSelected && highlightSelectedShot)
+            {
+                shotColor = Color.Lerp(shotColor, Color.white, 0.5f); // Brighten selected shot
+            }
+            if (isCurrentlyPlaying)
+            {
+                shotColor = Color.Lerp(shotColor, Color.yellow, 0.3f); // Yellow tint for playing shot
+            }
+            
             Gizmos.color = shotColor;
             
-            // Draw start position
-            Gizmos.DrawWireSphere(shot.startPosition.position, 0.3f);
+            // Draw start position marker (larger if selected)
+            float markerSize = isSelected ? 0.5f : 0.3f;
+            Gizmos.DrawWireSphere(shot.startPosition.position, markerSize);
+            
+            // Draw selection indicator
+            if (isSelected && highlightSelectedShot)
+            {
+                Gizmos.color = Color.white;
+                Gizmos.DrawWireSphere(shot.startPosition.position, markerSize + 0.1f);
+                Gizmos.color = shotColor;
+            }
+            
+            // Draw camera frustum and look direction at start position
+            if (showCameraFrustum || showLookDirections)
+            {
+                float sizeMultiplier = isSelected ? 1.3f : 1.0f;
+                DrawCameraVisualization(shot, shot.startPosition, shotColor, $"Shot {i + 1} Start", sizeMultiplier, isSelected);
+            }
+            
+            // Draw end position if applicable
+            if (shot.endPosition != null && (shot.shotType == CameraShot.ShotType.Movement || 
+                shot.shotType == CameraShot.ShotType.MovementWithPan ||
+                shot.shotType == CameraShot.ShotType.FreeRotation ||
+                shot.shotType == CameraShot.ShotType.CustomSequence))
+            {
+                Gizmos.color = shotColor;
+                Vector3 cubeSize = Vector3.one * (isSelected ? 0.4f : 0.3f);
+                Gizmos.DrawWireCube(shot.endPosition.position, cubeSize);
+                Gizmos.DrawLine(shot.startPosition.position, shot.endPosition.position);
+                
+                // Draw camera visualization at end position
+                if (showCameraFrustum || showLookDirections)
+                {
+                    float sizeMultiplier = isSelected ? 1.3f : 1.0f;
+                    DrawCameraVisualization(shot, shot.endPosition, shotColor * 0.7f, $"Shot {i + 1} End", sizeMultiplier, isSelected);
+                }
+            }
             
             // Draw shot-specific gizmos
-            DrawShotSpecificGizmos(shot, i);
+            DrawShotSpecificGizmos(shot, i, isSelected);
         }
         
-        // Draw sequence path
-        if (showShotPaths && shots.Count > 1)
+        // Draw sequence path (unless showing only selected shot)
+        if (showShotPaths && shots.Count > 1 && !showOnlySelectedShot)
         {
-            Gizmos.color = Color.white;
+            Gizmos.color = Color.white * 0.5f;
             for (int i = 0; i < shots.Count - 1; i++)
             {
                 if (shots[i].startPosition != null && shots[i + 1].startPosition != null)
@@ -708,6 +831,209 @@ public class CameraSystem : MonoBehaviour
                     Gizmos.DrawLine(shots[i].startPosition.position, shots[i + 1].startPosition.position);
                 }
             }
+        }
+        
+        // Draw selection info
+        if (selectedShotIndex >= 0 && selectedShotIndex < shots.Count)
+        {
+            #if UNITY_EDITOR
+            CameraShot selectedShot = shots[selectedShotIndex];
+            if (selectedShot.startPosition != null)
+            {
+                UnityEditor.Handles.color = Color.cyan;
+                Vector3 labelPos = selectedShot.startPosition.position + Vector3.up * 1.5f;
+                UnityEditor.Handles.Label(labelPos, $"SELECTED: {selectedShot.shotName}\nType: {selectedShot.shotType}\nDuration: {selectedShot.duration}s");
+            }
+            #endif
+        }
+    }
+    
+    private void DrawCameraVisualization(CameraShot shot, Transform cameraTransform, Color color, string label, float sizeMultiplier = 1.0f, bool isSelected = false)
+    {
+        Vector3 cameraPos = cameraTransform.position;
+        Quaternion cameraRot = GetCameraRotationForVisualization(shot, cameraTransform);
+        
+        Gizmos.color = color;
+        
+        // Draw camera frustum if enabled
+        if (showCameraFrustum)
+        {
+            DrawCameraFrustum(cameraPos, cameraRot, color, sizeMultiplier);
+        }
+        
+        // Draw look direction if enabled
+        if (showLookDirections)
+        {
+            Vector3 lookDirection = cameraRot * Vector3.forward;
+            Gizmos.color = color;
+            float arrowLength = lookDirectionLength * sizeMultiplier;
+            Gizmos.DrawRay(cameraPos, lookDirection * arrowLength);
+            
+            // Draw arrowhead (larger if selected)
+            Vector3 arrowHead = cameraPos + lookDirection * arrowLength;
+            float arrowSize = 0.2f * sizeMultiplier;
+            Vector3 right = cameraRot * Vector3.right * arrowSize;
+            Vector3 up = cameraRot * Vector3.up * arrowSize;
+            
+            Gizmos.DrawLine(arrowHead, arrowHead - lookDirection * (0.3f * sizeMultiplier) + right);
+            Gizmos.DrawLine(arrowHead, arrowHead - lookDirection * (0.3f * sizeMultiplier) - right);
+            Gizmos.DrawLine(arrowHead, arrowHead - lookDirection * (0.3f * sizeMultiplier) + up);
+            Gizmos.DrawLine(arrowHead, arrowHead - lookDirection * (0.3f * sizeMultiplier) - up);
+        }
+        
+        // Draw target connections if enabled
+        if (showTargetConnections)
+        {
+            DrawTargetConnections(shot, cameraPos, color, sizeMultiplier);
+        }
+        
+        // Label (highlighted if selected)
+        #if UNITY_EDITOR
+        UnityEditor.Handles.color = isSelected ? Color.white : color;
+        float labelOffset = 0.5f * sizeMultiplier;
+        UnityEditor.Handles.Label(cameraPos + Vector3.up * labelOffset, label);
+        #endif
+    }
+    
+    private void DrawCameraFrustum(Vector3 position, Quaternion rotation, Color color, float sizeMultiplier = 1.0f)
+    {
+        // Simple frustum representation
+        float size = frustumSize * sizeMultiplier;
+        float distance = lookDirectionLength * sizeMultiplier;
+        
+        Vector3 forward = rotation * Vector3.forward;
+        Vector3 right = rotation * Vector3.right;
+        Vector3 up = rotation * Vector3.up;
+        
+        // Near plane corners
+        Vector3 nearTL = position + forward * 0.5f + up * (size * 0.3f) - right * (size * 0.4f);
+        Vector3 nearTR = position + forward * 0.5f + up * (size * 0.3f) + right * (size * 0.4f);
+        Vector3 nearBL = position + forward * 0.5f - up * (size * 0.3f) - right * (size * 0.4f);
+        Vector3 nearBR = position + forward * 0.5f - up * (size * 0.3f) + right * (size * 0.4f);
+        
+        // Far plane corners
+        Vector3 farTL = position + forward * distance + up * size - right * (size * 1.33f);
+        Vector3 farTR = position + forward * distance + up * size + right * (size * 1.33f);
+        Vector3 farBL = position + forward * distance - up * size - right * (size * 1.33f);
+        Vector3 farBR = position + forward * distance - up * size + right * (size * 1.33f);
+        
+        Gizmos.color = color * 0.6f;
+        
+        // Near plane
+        Gizmos.DrawLine(nearTL, nearTR);
+        Gizmos.DrawLine(nearTR, nearBR);
+        Gizmos.DrawLine(nearBR, nearBL);
+        Gizmos.DrawLine(nearBL, nearTL);
+        
+        // Far plane
+        Gizmos.DrawLine(farTL, farTR);
+        Gizmos.DrawLine(farTR, farBR);
+        Gizmos.DrawLine(farBR, farBL);
+        Gizmos.DrawLine(farBL, farTL);
+        
+        // Connecting lines
+        Gizmos.DrawLine(nearTL, farTL);
+        Gizmos.DrawLine(nearTR, farTR);
+        Gizmos.DrawLine(nearBL, farBL);
+        Gizmos.DrawLine(nearBR, farBR);
+    }
+    
+    private void DrawTargetConnections(CameraShot shot, Vector3 cameraPos, Color color, float sizeMultiplier = 1.0f)
+    {
+        Gizmos.color = color * 0.8f;
+        
+        // Look at target connection
+        if (shot.useLookAt && shot.lookAtTarget != null)
+        {
+            Gizmos.color = Color.green * 0.8f;
+            Gizmos.DrawLine(cameraPos, shot.lookAtTarget.position);
+            Gizmos.DrawWireSphere(shot.lookAtTarget.position, 0.2f);
+            
+            #if UNITY_EDITOR
+            UnityEditor.Handles.color = Color.green;
+            UnityEditor.Handles.Label(shot.lookAtTarget.position + Vector3.up * 0.3f, "Look Target");
+            #endif
+        }
+        
+        // Pan targets
+        if (shot.panStartTarget != null && shot.panEndTarget != null)
+        {
+            Gizmos.color = Color.red * 0.8f;
+            Gizmos.DrawLine(cameraPos, shot.panStartTarget.position);
+            Gizmos.DrawLine(cameraPos, shot.panEndTarget.position);
+            Gizmos.DrawWireSphere(shot.panStartTarget.position, 0.15f);
+            Gizmos.DrawWireSphere(shot.panEndTarget.position, 0.15f);
+            Gizmos.DrawLine(shot.panStartTarget.position, shot.panEndTarget.position);
+            
+            #if UNITY_EDITOR
+            UnityEditor.Handles.color = Color.red;
+            UnityEditor.Handles.Label(shot.panStartTarget.position + Vector3.up * 0.2f, "Pan Start");
+            UnityEditor.Handles.Label(shot.panEndTarget.position + Vector3.up * 0.2f, "Pan End");
+            #endif
+        }
+        
+        // Orbit center
+        if (shot.shotType == CameraShot.ShotType.OrbitAround && shot.orbitCenter != null)
+        {
+            Gizmos.color = Color.magenta * 0.8f;
+            Gizmos.DrawLine(cameraPos, shot.orbitCenter.position);
+            Gizmos.DrawWireSphere(shot.orbitCenter.position, shot.orbitRadius);
+            
+            #if UNITY_EDITOR
+            UnityEditor.Handles.color = Color.magenta;
+            UnityEditor.Handles.Label(shot.orbitCenter.position + Vector3.up * 0.3f, "Orbit Center");
+            #endif
+        }
+    }
+    
+    private Quaternion GetCameraRotationForVisualization(CameraShot shot, Transform cameraTransform)
+    {
+        // Return the appropriate rotation based on shot settings
+        switch (shot.rotationType)
+        {
+            case CameraShot.RotationType.UseTransformRotation:
+                return cameraTransform.rotation;
+                
+            case CameraShot.RotationType.LookAtTarget:
+                if (shot.lookAtTarget != null)
+                {
+                    Vector3 direction = (shot.lookAtTarget.position - cameraTransform.position).normalized;
+                    if (direction != Vector3.zero)
+                    {
+                        Quaternion lookRot = Quaternion.LookRotation(direction);
+                        if (shot.lookAtRotationOffset != Vector3.zero)
+                        {
+                            lookRot *= Quaternion.Euler(shot.lookAtRotationOffset);
+                        }
+                        return lookRot;
+                    }
+                }
+                return cameraTransform.rotation;
+                
+            case CameraShot.RotationType.CustomEulerAngles:
+                if (shot.useLocalRotation)
+                {
+                    return cameraTransform.rotation * Quaternion.Euler(shot.customRotationStart);
+                }
+                else
+                {
+                    return Quaternion.Euler(shot.customRotationStart);
+                }
+                
+            case CameraShot.RotationType.FollowMovementDirection:
+                if (shot.endPosition != null)
+                {
+                    Vector3 moveDirection = (shot.endPosition.position - shot.startPosition.position).normalized;
+                    if (moveDirection != Vector3.zero)
+                    {
+                        return Quaternion.LookRotation(moveDirection);
+                    }
+                }
+                return cameraTransform.rotation;
+                
+            case CameraShot.RotationType.KeepCurrentRotation:
+            default:
+                return cameraTransform.rotation;
         }
     }
     
@@ -728,43 +1054,8 @@ public class CameraSystem : MonoBehaviour
         }
     }
     
-    private void DrawShotSpecificGizmos(CameraShot shot, int index)
+    private void DrawShotSpecificGizmos(CameraShot shot, int index, bool isSelected = false)
     {
-        // Draw end position for movement shots
-        if (shot.endPosition != null && 
-            (shot.shotType == CameraShot.ShotType.Movement || 
-             shot.shotType == CameraShot.ShotType.MovementWithPan ||
-             shot.shotType == CameraShot.ShotType.FreeRotation))
-        {
-            Gizmos.DrawWireCube(shot.endPosition.position, Vector3.one * 0.3f);
-            Gizmos.DrawLine(shot.startPosition.position, shot.endPosition.position);
-        }
-        
-        // Draw look at target
-        if (shot.useLookAt && shot.lookAtTarget != null)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(shot.lookAtTarget.position, 0.2f);
-            Gizmos.DrawLine(shot.startPosition.position, shot.lookAtTarget.position);
-        }
-        
-        // Draw pan targets
-        if (shot.panStartTarget != null && shot.panEndTarget != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(shot.panStartTarget.position, 0.15f);
-            Gizmos.DrawWireSphere(shot.panEndTarget.position, 0.15f);
-            Gizmos.DrawLine(shot.panStartTarget.position, shot.panEndTarget.position);
-        }
-        
-        // Draw orbit center and radius
-        if (shot.shotType == CameraShot.ShotType.OrbitAround && shot.orbitCenter != null)
-        {
-            Gizmos.color = Color.magenta;
-            Gizmos.DrawWireSphere(shot.orbitCenter.position, shot.orbitRadius);
-            Gizmos.DrawLine(shot.startPosition.position, shot.orbitCenter.position);
-        }
-        
         // Draw dolly path
         if (shot.shotType == CameraShot.ShotType.DollyPath && shot.dollyPath.Count > 1)
         {
@@ -775,12 +1066,30 @@ public class CameraSystem : MonoBehaviour
                 {
                     Gizmos.DrawLine(shot.dollyPath[i].position, shot.dollyPath[i + 1].position);
                     Gizmos.DrawWireSphere(shot.dollyPath[i].position, 0.1f);
+                    
+                    // Draw camera visualization at each dolly point
+                    if (showCameraFrustum || showLookDirections)
+                    {
+                        Color dollyColor = Color.cyan * 0.5f;
+                        Quaternion dollyRot = GetCameraRotationForVisualization(shot, shot.dollyPath[i]);
+                        if (showLookDirections)
+                        {
+                            Vector3 lookDir = dollyRot * Vector3.forward;
+                            Gizmos.color = dollyColor;
+                            Gizmos.DrawRay(shot.dollyPath[i].position, lookDir * (lookDirectionLength * 0.5f));
+                        }
+                    }
                 }
             }
             if (shot.dollyPath[shot.dollyPath.Count - 1] != null)
             {
                 Gizmos.DrawWireSphere(shot.dollyPath[shot.dollyPath.Count - 1].position, 0.1f);
             }
+            
+            #if UNITY_EDITOR
+            UnityEditor.Handles.color = Color.cyan;
+            UnityEditor.Handles.Label(shot.dollyPath[0].position + Vector3.up * 0.3f, $"Dolly Path {shot.dollyPath.Count} points");
+            #endif
         }
     }
     
