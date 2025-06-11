@@ -15,52 +15,84 @@ public class CameraShot
     
     [Header("Camera Position")]
     public Transform startPosition;
-    public Transform endPosition; // Only used for movement shots
+    
+    [ConditionalHide("shotType", 1, 3, 6, 8)] // Movement, MovementWithPan, FreeRotation, CustomSequence
+    public Transform endPosition;
     
     [Header("Camera Rotation")]
+    [ConditionalHide("shotType", 1, 3, 5, 6, 8)] // Movement, MovementWithPan, DollyPath, FreeRotation, CustomSequence
     public RotationType rotationType = RotationType.UseTransformRotation;
     
     [Header("Look At System")]
+    [ConditionalHide("shotType", 0, 1, 4, 5, 7, 8)] // Static, Movement, OrbitAround, DollyPath, LookAtOnly, CustomSequence
     public bool useLookAt = false;
+    
+    [ConditionalHide("useLookAt", true)]
     public Transform lookAtTarget;
-    public bool continuousLookAt = true; // Keep looking during movement
+    
+    [ConditionalHide("useLookAt", true)]
+    public bool continuousLookAt = true;
     
     [Header("Pan System")]
+    [ConditionalHide("shotType", 2, 3)] // Pan, MovementWithPan
     public Transform panStartTarget;
+    
+    [ConditionalHide("shotType", 2, 3)] // Pan, MovementWithPan
     public Transform panEndTarget;
     
     [Header("Orbit/Rotate Around Point")]
+    [ConditionalHide("shotType", 4)] // OrbitAround
     public Transform orbitCenter;
+    
+    [ConditionalHide("shotType", 4)] // OrbitAround
     public Vector3 orbitAxis = Vector3.up;
+    
+    [ConditionalHide("shotType", 4)] // OrbitAround
     public float orbitAngle = 360f;
+    
+    [ConditionalHide("shotType", 4)] // OrbitAround
     public float orbitRadius = 5f;
     
     [Header("Dolly Track")]
+    [ConditionalHide("shotType", 5)] // DollyPath
     public List<Transform> dollyPath = new List<Transform>();
+    
+    [ConditionalHide("shotType", 5)] // DollyPath
     public bool useDollyPath = false;
     
     [Header("Animation Curves")]
+    [ConditionalHide("shotType", 1, 3, 4, 5, 8)] // Movement, MovementWithPan, OrbitAround, DollyPath, CustomSequence
     public AnimationCurve movementCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    
+    [ConditionalHide("shotType", 1, 5, 6)] // Movement, DollyPath, FreeRotation
     public AnimationCurve rotationCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
+    
+    [ConditionalHide("shotType", 2, 3)] // Pan, MovementWithPan
     public AnimationCurve panCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
     
     [Header("Advanced Settings")]
+    [ConditionalHide("useLookAt", true)]
     public bool smoothLookAt = true;
+    
+    [ConditionalHide("smoothLookAt", true)]
     public float lookAtSpeed = 2f;
+    
     public bool waitAtEnd = false;
+    
+    [ConditionalHide("waitAtEnd", true)]
     public float waitDuration = 1f;
     
     public enum ShotType
     {
-        Static,              // Camera stays in one position
-        Movement,            // Camera moves from point A to B
-        Pan,                 // Camera rotates to look between targets
-        MovementWithPan,     // Camera moves while panning between targets
-        OrbitAround,         // Camera orbits around a point
-        DollyPath,           // Camera follows a path of points
-        FreeRotation,        // Camera rotates freely (no movement)
-        LookAtOnly,          // Camera only looks at target (no movement)
-        CustomSequence       // Combine multiple behaviors
+        Static,              // 0 - Camera stays in one position
+        Movement,            // 1 - Camera moves from point A to B
+        Pan,                 // 2 - Camera rotates to look between targets
+        MovementWithPan,     // 3 - Camera moves while panning between targets
+        OrbitAround,         // 4 - Camera orbits around a point
+        DollyPath,           // 5 - Camera follows a path of points
+        FreeRotation,        // 6 - Camera rotates freely (no movement)
+        LookAtOnly,          // 7 - Camera only looks at target (no movement)
+        CustomSequence       // 8 - Combine multiple behaviors
     }
     
     public enum RotationType

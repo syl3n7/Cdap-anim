@@ -546,7 +546,7 @@ public class CameraSystem : MonoBehaviour
             case CameraShot.ShotType.MovementWithPan: return Color.yellow;
             case CameraShot.ShotType.OrbitAround: return Color.magenta;
             case CameraShot.ShotType.DollyPath: return Color.cyan;
-            case CameraShot.ShotType.FreeRotation: return Color.orange;
+            case CameraShot.ShotType.FreeRotation: return new Color(1f, 0.5f, 0f); // Orange
             case CameraShot.ShotType.LookAtOnly: return Color.white;
             case CameraShot.ShotType.CustomSequence: return Color.gray;
             default: return Color.white;
