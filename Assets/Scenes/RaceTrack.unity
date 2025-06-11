@@ -228,6 +228,37 @@ MonoBehaviour:
   rotateTowardsTarget: 1
   rotationSpeed: 10
   showGizmos: 1
+--- !u!1 &49574924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 49574925}
+  m_Layer: 0
+  m_Name: Entry_Lau_pointG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &49574925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49574924}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.193, y: -1.337, z: -19.168}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 294497608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &99449653
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -399,7 +430,7 @@ Transform:
   m_GameObject: {fileID: 227885522}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.1958177, z: -0, w: 0.98064035}
-  m_LocalPosition: {x: -64.778076, y: 1.7709084, z: -74.44939}
+  m_LocalPosition: {x: -52.24, y: 1.7709084, z: -85.84}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -884,9 +915,7 @@ MonoBehaviour:
     orbitAxis: {x: 0, y: 0, z: 0}
     orbitAngle: 0
     orbitRadius: 0
-    dollyPath:
-    - {fileID: 890301205}
-    - {fileID: 1355811812}
+    dollyPath: []
     useDollyPath: 1
     movementCurve:
       serializedVersion: 2
@@ -953,7 +982,7 @@ MonoBehaviour:
     waitAtEnd: 0
     waitDuration: 0
   - shotName: SeventhShot
-    duration: 6
+    duration: 5
     shotDescription: Characters are in the middle of the bridge, a car passes below
       the bridge.
     shotType: 0
@@ -1040,6 +1069,268 @@ MonoBehaviour:
     lookAtSpeed: 0
     waitAtEnd: 0
     waitDuration: 0
+  - shotName: EighthShot
+    duration: 6
+    shotDescription: Characters are in the middle of the bridge, after the car passes,
+      they have a small dialog.
+    shotType: 0
+    startPosition: {fileID: 1176820665}
+    endPosition: {fileID: 1355811812}
+    rotationType: 0
+    customRotationStart: {x: 4.11, y: 3.82, z: 57.54}
+    customRotationEnd: {x: 2.66, y: 1.85, z: 4.62}
+    useLocalRotation: 0
+    useLookAt: 1
+    lookAtTarget: {fileID: 0}
+    continuousLookAt: 0
+    panStartTarget: {fileID: 1304071237}
+    panEndTarget: {fileID: 355238950}
+    orbitCenter: {fileID: 0}
+    orbitAxis: {x: 0, y: 0, z: 0}
+    orbitAngle: 0
+    orbitRadius: 0
+    dollyPath: []
+    useDollyPath: 1
+    movementCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.0033264
+        value: 0.9000931
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    rotationCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    panCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    staticRotationOverride: {x: 0, y: 0, z: 0}
+    useStaticRotationOverride: 0
+    panRotationOffset: {x: 0, y: 0, z: 0}
+    orbitLookOffset: {x: 0, y: 0, z: 0}
+    maintainOrbitHeight: 1
+    lookAtRotationOffset: {x: 0, y: 0, z: 0}
+    smoothLookAt: 0
+    lookAtSpeed: 0
+    waitAtEnd: 0
+    waitDuration: 0
+  - shotName: NiniethShot
+    duration: 6
+    shotDescription: Characters are walking down the stairs on the other side of
+      the bridge, claudio goes in front, the camer moves down with them.
+    shotType: 5
+    startPosition: {fileID: 759709139}
+    endPosition: {fileID: 1355811812}
+    rotationType: 0
+    customRotationStart: {x: 4.11, y: 3.82, z: 57.54}
+    customRotationEnd: {x: 2.66, y: 1.85, z: 4.62}
+    useLocalRotation: 0
+    useLookAt: 1
+    lookAtTarget: {fileID: 0}
+    continuousLookAt: 0
+    panStartTarget: {fileID: 1304071237}
+    panEndTarget: {fileID: 355238950}
+    orbitCenter: {fileID: 0}
+    orbitAxis: {x: 0, y: 0, z: 0}
+    orbitAngle: 0
+    orbitRadius: 0
+    dollyPath:
+    - {fileID: 759709139}
+    - {fileID: 380694861}
+    useDollyPath: 1
+    movementCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.0033264
+        value: 0.9000931
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    rotationCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    panCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    staticRotationOverride: {x: 0, y: 0, z: 0}
+    useStaticRotationOverride: 0
+    panRotationOffset: {x: 0, y: 0, z: 0}
+    orbitLookOffset: {x: 0, y: 0, z: 0}
+    maintainOrbitHeight: 1
+    lookAtRotationOffset: {x: 0, y: 0, z: 0}
+    smoothLookAt: 0
+    lookAtSpeed: 0
+    waitAtEnd: 0
+    waitDuration: 0
+  - shotName: TenthShot
+    duration: 6
+    shotDescription: Characters are walking off the stairs, walking towards a standee,
+      there is a small dialog, one character goes right and the other goes left.
+    shotType: 0
+    startPosition: {fileID: 339685456}
+    endPosition: {fileID: 1355811812}
+    rotationType: 0
+    customRotationStart: {x: 4.11, y: 3.82, z: 57.54}
+    customRotationEnd: {x: 2.66, y: 1.85, z: 4.62}
+    useLocalRotation: 0
+    useLookAt: 1
+    lookAtTarget: {fileID: 0}
+    continuousLookAt: 0
+    panStartTarget: {fileID: 1304071237}
+    panEndTarget: {fileID: 355238950}
+    orbitCenter: {fileID: 0}
+    orbitAxis: {x: 0, y: 0, z: 0}
+    orbitAngle: 0
+    orbitRadius: 0
+    dollyPath:
+    - {fileID: 759709139}
+    - {fileID: 380694861}
+    useDollyPath: 1
+    movementCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.0033264
+        value: 0.9000931
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    rotationCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    panCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    staticRotationOverride: {x: 0, y: 0, z: 0}
+    useStaticRotationOverride: 0
+    panRotationOffset: {x: 0, y: 0, z: 0}
+    orbitLookOffset: {x: 0, y: 0, z: 0}
+    maintainOrbitHeight: 1
+    lookAtRotationOffset: {x: 0, y: 0, z: 0}
+    smoothLookAt: 0
+    lookAtSpeed: 0
+    waitAtEnd: 0
+    waitDuration: 0
   loopSequence: 0
   delayBetweenShots: 0.2
   showShotProgressInConsole: 1
@@ -1053,6 +1344,37 @@ MonoBehaviour:
   showTargetConnections: 1
   frustumSize: 2
   lookDirectionLength: 3
+--- !u!1 &266422586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266422587}
+  m_Layer: 0
+  m_Name: Entry_Maggy_PointH
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &266422587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266422586}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.99, y: -1.86, z: -22.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 294497608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &285761654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1447,11 @@ Transform:
   - {fileID: 1539971665}
   - {fileID: 880865072}
   - {fileID: 489734597}
+  - {fileID: 333438864}
+  - {fileID: 49574925}
+  - {fileID: 266422587}
+  - {fileID: 408881118}
+  - {fileID: 1350152696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &296963213
@@ -1153,6 +1480,68 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.97, y: -1.431, z: 5.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 294497608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &304069147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 304069148}
+  m_Layer: 0
+  m_Name: EighthShotBegin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &304069148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304069147}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.04280546, y: 0.8098275, z: -0.059555236, w: 0.5820655}
+  m_LocalPosition: {x: -74.729, y: -29.89, z: -22.77}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1408446317}
+  m_LocalEulerAnglesHint: {x: 8.412, y: 108.586, z: 0}
+--- !u!1 &333438863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333438864}
+  m_Layer: 0
+  m_Name: Entry_Maggy_PointG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &333438864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333438863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.269, y: -1.04, z: -18.358}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1215,6 +1604,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
+--- !u!1 &339685455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 339685456}
+  m_Layer: 0
+  m_Name: TenthShotBegin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &339685456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339685455}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.008200342, y: 0.99105346, z: -0.07288274, w: -0.11150719}
+  m_LocalPosition: {x: -71.155, y: -32.485, z: -23.012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1408446317}
+  m_LocalEulerAnglesHint: {x: 8.412, y: 192.839, z: 0}
 --- !u!1 &355238949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,12 +1691,43 @@ Transform:
   m_GameObject: {fileID: 362481545}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.412, y: -32.275, z: 5.065}
+  m_LocalPosition: {x: -51.385, y: -32.275, z: 4.224}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1408446317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &380694860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 380694861}
+  m_Layer: 0
+  m_Name: NiniethShotEnd
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &380694861
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380694860}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.04280546, y: 0.8098275, z: -0.059555236, w: 0.5820655}
+  m_LocalPosition: {x: -75.004, y: -30.233, z: -24.074}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1408446317}
+  m_LocalEulerAnglesHint: {x: 8.412, y: 108.586, z: 0}
 --- !u!4 &390194153 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4844194986776640705, guid: 0272d5b08108c7543b70c3ccbcd7249c, type: 3}
@@ -1370,6 +1821,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
+--- !u!1 &408881117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 408881118}
+  m_Layer: 0
+  m_Name: Entry_Maggy_PointI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &408881118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408881117}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.28, y: -1.86, z: -23.71}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 294497608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &410914727 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a40e2bc4147b3468b840cf33c04a5a4b, type: 3}
@@ -1452,6 +1934,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8776503084654541318, guid: d7c9b08657eabc54db441e4854d7996e, type: 3}
   m_PrefabInstance: {fileID: 5985644896948575869}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &759709138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 759709139}
+  m_Layer: 0
+  m_Name: NiniethShotBegin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &759709139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759709138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.04854784, y: 0.747544, z: -0.054974828, w: 0.66015065}
+  m_LocalPosition: {x: -74.729, y: -29.89, z: -22.054}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1408446317}
+  m_LocalEulerAnglesHint: {x: 8.412, y: 97.105, z: 0}
 --- !u!1 &761244115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,6 +2792,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 784004096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1350152695
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1350152696}
+  m_Layer: 0
+  m_Name: Entry_Lau_pointH
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1350152696
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350152695}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -19.991, y: -1.426, z: -20.834}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 294497608}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1355811811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2429,6 +2973,10 @@ Transform:
   - {fileID: 1355811812}
   - {fileID: 1176820665}
   - {fileID: 1555778050}
+  - {fileID: 304069148}
+  - {fileID: 759709139}
+  - {fileID: 380694861}
+  - {fileID: 339685456}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1459907186
@@ -2760,13 +3308,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817236226}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21839803, y: 0.3573113, z: -0.09100105, w: 0.90352076}
+  m_LocalRotation: {x: 0.703243, y: 0.34356767, z: 0.13383715, w: 0.60786355}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 27.367, y: 43.023003, z: -0.54}
+  m_LocalEulerAnglesHint: {x: 49.728, y: 110.387, z: 92.21}
 --- !u!114 &1817236230
 MonoBehaviour:
   m_ObjectHideFlags: 0
