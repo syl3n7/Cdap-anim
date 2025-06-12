@@ -1427,6 +1427,93 @@ MonoBehaviour:
     lookAtSpeed: 0
     waitAtEnd: 0
     waitDuration: 0
+  - shotName: eleventhShot
+    duration: 3
+    shotDescription: We see the car crossing the finish line.
+    shotType: 2
+    startPosition: {fileID: 1769432509}
+    endPosition: {fileID: 1355811812}
+    rotationType: 0
+    customRotationStart: {x: 4.11, y: 3.82, z: 57.54}
+    customRotationEnd: {x: 2.66, y: 1.85, z: 4.62}
+    useLocalRotation: 0
+    useLookAt: 1
+    lookAtTarget: {fileID: 0}
+    continuousLookAt: 0
+    panStartTarget: {fileID: 1518263678}
+    panEndTarget: {fileID: 2043631278}
+    orbitCenter: {fileID: 0}
+    orbitAxis: {x: 0, y: 0, z: 0}
+    orbitAngle: 0
+    orbitRadius: 0
+    dollyPath:
+    - {fileID: 759709139}
+    - {fileID: 380694861}
+    useDollyPath: 1
+    movementCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1.0033264
+        value: 0.9000931
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    rotationCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 0
+      m_PostInfinity: 0
+      m_RotationOrder: 0
+    panCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 2
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+    staticRotationOverride: {x: 0, y: 0, z: 0}
+    useStaticRotationOverride: 0
+    panRotationOffset: {x: 0, y: 0, z: 0}
+    orbitLookOffset: {x: 0, y: 0, z: 0}
+    maintainOrbitHeight: 1
+    lookAtRotationOffset: {x: 0, y: 0, z: 0}
+    smoothLookAt: 0
+    lookAtSpeed: 0
+    waitAtEnd: 0
+    waitDuration: 0
   loopSequence: 0
   delayBetweenShots: 0.2
   showShotProgressInConsole: 1
@@ -2128,6 +2215,8 @@ Transform:
   m_Children:
   - {fileID: 1304071237}
   - {fileID: 355238950}
+  - {fileID: 1518263678}
+  - {fileID: 2043631278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &840172298
@@ -3073,6 +3162,7 @@ Transform:
   - {fileID: 759709139}
   - {fileID: 380694861}
   - {fileID: 339685456}
+  - {fileID: 1769432509}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1459907186
@@ -3306,6 +3396,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 294497608}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1518263677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1518263678}
+  m_Layer: 0
+  m_Name: entry3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1518263678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1518263677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 51.3, y: -44.58, z: 15.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 784004096}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1539971664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3409,6 +3530,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1408446317}
   m_LocalEulerAnglesHint: {x: 19.548, y: -134.167, z: 0}
+--- !u!1 &1769432508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1769432509}
+  m_Layer: 0
+  m_Name: eleventh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1769432509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1769432508}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 0.79070395, z: -0, w: 0.61219865}
+  m_LocalPosition: {x: -44.33, y: -24.49, z: 41.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1408446317}
+  m_LocalEulerAnglesHint: {x: 0, y: 104.503, z: 0}
 --- !u!1 &1817236226
 GameObject:
   m_ObjectHideFlags: 0
@@ -3716,6 +3868,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4369981953471839712, guid: 75b153afc116e8c4b83693a9bbf7f515, type: 3}
   m_PrefabInstance: {fileID: 4973060994101731812}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2043631277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043631278}
+  m_Layer: 0
+  m_Name: entry4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2043631278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043631277}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -212.9, y: -44.58, z: 15.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 784004096}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2045977042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1167748281217693831, guid: 236da01a3a0ddb94399e07ecc8b36af9, type: 3}
