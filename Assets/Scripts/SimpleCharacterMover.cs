@@ -97,7 +97,7 @@ public class SimpleCharacterMover : MonoBehaviour
     public Color pointBColor = Color.red;
     public Color progressColor = Color.cyan;
     public Color velocityColor = Color.magenta;
-    public Color accelerationColor = Color.orange;
+    public Color accelerationColor = Color.yellow;
     public Color decelerationColor = Color.blue;
     public Color groundProjectionColor = Color.gray;
     public Color obstacleDetectionColor = Color.red;

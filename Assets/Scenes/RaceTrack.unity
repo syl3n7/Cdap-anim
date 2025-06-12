@@ -201,6 +201,10 @@ MonoBehaviour:
   moveSpeed: 2.7
   autoStartOnPlay: 1
   loopMovement: 0
+  loopDelay: 0.5
+  useMultiPointPath: 0
+  pathPoints: []
+  loopPath: 0
   movementCurve:
     serializedVersion: 2
     m_Curve:
@@ -227,7 +231,99 @@ MonoBehaviour:
     m_RotationOrder: 4
   rotateTowardsTarget: 1
   rotationSpeed: 10
+  useCustomRotation: 0
+  rotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  enableMovementEvents: 0
+  OnMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMovementComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReachPointA:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReachPointB:
+    m_PersistentCalls:
+      m_Calls: []
+  notifyCameraSystem: 0
+  cameraSystem: {fileID: 0}
+  triggerShotOnReachA: -1
+  triggerShotOnReachB: -1
+  pauseOnReachPoint: 0
+  pauseDuration: 1
+  smoothSpeedTransitions: 1
+  accelerationTime: 0.5
+  decelerationTime: 0.5
+  predictiveRotation: 0
+  rotationPredictionDistance: 2
+  constrainToGround: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  groundOffset: 0.1
+  avoidObstacles: 0
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  obstacleDetectionDistance: 1
   showGizmos: 1
+  showPath: 1
+  showMovementProgress: 1
+  showRotationIndicator: 1
+  showSpeedVisualization: 1
+  showDistanceLabels: 1
+  showTimingInfo: 1
+  showVelocityVector: 1
+  showAccelerationZones: 1
+  showGroundProjection: 0
+  showObstacleDetection: 0
+  showWaypoints: 1
+  showPathNumbers: 1
+  showCollisionBounds: 0
+  showInfluenceZones: 0
+  showPathPrediction: 0
+  pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  pointAColor: {r: 0, g: 1, b: 0, a: 1}
+  pointBColor: {r: 1, g: 0, b: 0, a: 1}
+  progressColor: {r: 0, g: 1, b: 1, a: 1}
+  velocityColor: {r: 1, g: 0, b: 1, a: 1}
+  accelerationColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  decelerationColor: {r: 0, g: 0, b: 1, a: 1}
+  groundProjectionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  obstacleDetectionColor: {r: 1, g: 0, b: 0, a: 1}
+  waypointColor: {r: 1, g: 1, b: 1, a: 1}
+  influenceZoneColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  collisionBoundsColor: {r: 1, g: 0, b: 0, a: 1}
+  predictionColor: {r: 0, g: 1, b: 0, a: 1}
+  gizmoSize: 0.5
+  pathLineWidth: 3
+  gizmoAlpha: 0.8
+  gizmoStyle: 1
+  movementMode: 1
 --- !u!1 &49574924
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,6 +3152,10 @@ MonoBehaviour:
   moveSpeed: 2.7
   autoStartOnPlay: 1
   loopMovement: 0
+  loopDelay: 0.5
+  useMultiPointPath: 0
+  pathPoints: []
+  loopPath: 1
   movementCurve:
     serializedVersion: 2
     m_Curve:
@@ -3082,7 +3182,99 @@ MonoBehaviour:
     m_RotationOrder: 4
   rotateTowardsTarget: 1
   rotationSpeed: 10
+  useCustomRotation: 0
+  rotationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  enableMovementEvents: 0
+  OnMovementStart:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMovementComplete:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReachPointA:
+    m_PersistentCalls:
+      m_Calls: []
+  OnReachPointB:
+    m_PersistentCalls:
+      m_Calls: []
+  notifyCameraSystem: 0
+  cameraSystem: {fileID: 0}
+  triggerShotOnReachA: -1
+  triggerShotOnReachB: -1
+  pauseOnReachPoint: 0
+  pauseDuration: 1
+  smoothSpeedTransitions: 1
+  accelerationTime: 0.5
+  decelerationTime: 0.5
+  predictiveRotation: 0
+  rotationPredictionDistance: 2
+  constrainToGround: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  groundOffset: 0.1
+  avoidObstacles: 0
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  obstacleDetectionDistance: 1
   showGizmos: 1
+  showPath: 1
+  showMovementProgress: 1
+  showRotationIndicator: 1
+  showSpeedVisualization: 1
+  showDistanceLabels: 1
+  showTimingInfo: 1
+  showVelocityVector: 1
+  showAccelerationZones: 1
+  showGroundProjection: 0
+  showObstacleDetection: 0
+  showWaypoints: 1
+  showPathNumbers: 1
+  showCollisionBounds: 0
+  showInfluenceZones: 0
+  showPathPrediction: 0
+  pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  pointAColor: {r: 0, g: 1, b: 0, a: 1}
+  pointBColor: {r: 1, g: 0, b: 0, a: 1}
+  progressColor: {r: 0, g: 1, b: 1, a: 1}
+  velocityColor: {r: 1, g: 0, b: 1, a: 1}
+  accelerationColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  decelerationColor: {r: 0, g: 0, b: 1, a: 1}
+  groundProjectionColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  obstacleDetectionColor: {r: 1, g: 0, b: 0, a: 1}
+  waypointColor: {r: 1, g: 1, b: 1, a: 1}
+  influenceZoneColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  collisionBoundsColor: {r: 1, g: 0, b: 0, a: 1}
+  predictionColor: {r: 0, g: 1, b: 0, a: 1}
+  gizmoSize: 0.5
+  pathLineWidth: 3
+  gizmoAlpha: 0.8
+  gizmoStyle: 1
+  movementMode: 1
 --- !u!1 &1501334326
 GameObject:
   m_ObjectHideFlags: 0
