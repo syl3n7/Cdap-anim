@@ -14,7 +14,8 @@ public class CameraShot
     public ShotType shotType = ShotType.Static;
 
     [Header("Events")]
-    public UnityEngine.Events.UnityEvent StartWalk;
+    public UnityEngine.Events.UnityEvent MaggyStartWalk;
+    public UnityEngine.Events.UnityEvent ClaudioStartWalk;
 
     [Header("Camera Position")]
     public Transform startPosition;

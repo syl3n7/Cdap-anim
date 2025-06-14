@@ -232,6 +232,12 @@ MonoBehaviour:
     duration: 5
     shotDescription: Breif overview of track with a little peak to the characters
     shotType: 3
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1709109794}
     endPosition: {fileID: 141059036}
     rotationType: 0
@@ -326,6 +332,12 @@ MonoBehaviour:
     duration: 6
     shotDescription: Breif overview of track with a little peak to the characters
     shotType: 5
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 586218521}
     endPosition: {fileID: 141059036}
     rotationType: 0
@@ -413,6 +425,12 @@ MonoBehaviour:
     duration: 7
     shotDescription: first dialog between characters
     shotType: 0
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1236451897}
     endPosition: {fileID: 141059036}
     rotationType: 2
@@ -501,6 +519,36 @@ MonoBehaviour:
     shotDescription: Dialog 2, camera backs away from characters and hey walk forward
       to the stairs.
     shotType: 5
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 230911891}
+          m_TargetAssemblyTypeName: SimpleCharacterMover, Assembly-CSharp
+          m_MethodName: OnCamera4ChangeEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8004425717471559503}
+          m_TargetAssemblyTypeName: SimpleCharacterMover, Assembly-CSharp
+          m_MethodName: OnCamera4ChangeEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     startPosition: {fileID: 1250192015}
     endPosition: {fileID: 141059036}
     rotationType: 1
@@ -589,6 +637,36 @@ MonoBehaviour:
     shotDescription: Characters go up the stairs, camera rotates following them through
       the bridge.
     shotType: 5
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 230911891}
+          m_TargetAssemblyTypeName: SimpleCharacterMover, Assembly-CSharp
+          m_MethodName: OnCamera5ChangeEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 8004425717471559503}
+          m_TargetAssemblyTypeName: SimpleCharacterMover, Assembly-CSharp
+          m_MethodName: OnCamera5ChangeEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     startPosition: {fileID: 890301205}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -677,6 +755,12 @@ MonoBehaviour:
     shotDescription: Characters are in the middle of the bridge, back to the camera,
       looking down at the racetrack.
     shotType: 0
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1176820665}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -763,6 +847,12 @@ MonoBehaviour:
     shotDescription: Characters are in the middle of the bridge, a car passes below
       the bridge.
     shotType: 0
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1555778050}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -851,6 +941,12 @@ MonoBehaviour:
     shotDescription: Characters are in the middle of the bridge, after the car passes,
       they have a small dialog.
     shotType: 0
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1176820665}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -937,6 +1033,12 @@ MonoBehaviour:
     shotDescription: Characters are walking down the stairs on the other side of
       the bridge, claudio goes in front, the camer moves down with them.
     shotType: 5
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 759709139}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -1025,6 +1127,12 @@ MonoBehaviour:
     shotDescription: Characters are walking off the stairs, walking towards a standee,
       there is a small dialog, one character goes right and the other goes left.
     shotType: 0
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 339685456}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -1112,6 +1220,12 @@ MonoBehaviour:
     duration: 3
     shotDescription: We see the car crossing the finish line.
     shotType: 2
+    MaggyStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
+    ClaudioStartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1769432509}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -1842,7 +1956,7 @@ Transform:
   m_GameObject: {fileID: 489734596}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15, y: 1.87, z: -6.156}
+  m_LocalPosition: {x: -12.839, y: 1.87, z: 2.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2096,7 +2210,7 @@ Transform:
   m_GameObject: {fileID: 880865071}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.597, y: 1.61, z: -5.305}
+  m_LocalPosition: {x: -12.055, y: 1.61, z: 1.551}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

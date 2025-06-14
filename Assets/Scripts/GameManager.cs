@@ -18,11 +18,5 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Action OnCamera3Change;
-
-    public void OCamera3ChangeEvent()
-    {
-        OnCamera3Change?.Invoke();
-    }
 
 }
