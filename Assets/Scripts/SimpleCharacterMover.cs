@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using UnityEngine.Playables;
+using Unity.VisualScripting;
+using UnityEngine.Animations;
 
 public class SimpleCharacterMover : MonoBehaviour
 {
@@ -135,8 +139,22 @@ public class SimpleCharacterMover : MonoBehaviour
     private float pathCompletionPercentage = 0f;
     private Dictionary<int, float> waypointTimings = new Dictionary<int, float>();
 
+    private Animator _animator;
+
+
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
+
+    public void ChangeAnim(bool isWalking)
+    {
+        _animator.SetBool("IsWalking", isWalking);
+    }
     void Start()
     {
+
         // Initialize path points if using multi-point path
         if (useMultiPointPath && pathPoints.Count == 0 && pointA != null && pointB != null)
         {
@@ -203,8 +221,7 @@ public class SimpleCharacterMover : MonoBehaviour
         StopMovement();
         currentPathIndex = 0;
         transform.position = pathPoints[0].position;
-        movementCoroutine = StartCoroutine(MoveAlongPath());
-    }
+        movementCoroutine = StartCoroutine(MoveAlongPath());    }
     
     [ContextMenu("Stop Movement")]
     public void StopMovement()
