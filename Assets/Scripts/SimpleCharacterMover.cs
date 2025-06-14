@@ -26,8 +26,15 @@ public class SimpleCharacterMover : MonoBehaviour
     }
     
     [Header("Movement Settings")]
+
+    public bool Maggy = false;
+
     public Transform pointA;
     public Transform pointB;
+
+    public Transform[] MaggyPoints;
+    public Transform[] ClaudePoints;
+
     public float moveSpeed = 5f;
     public bool autoStartOnPlay = true;
     public bool loopMovement = false;
@@ -142,6 +149,33 @@ public class SimpleCharacterMover : MonoBehaviour
     private Animator _animator;
 
 
+    private void OnEnable()
+    {
+        GameManager.instance.OnCamera3Change += OnCamera3ChangeEvent;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.instance.OnCamera3Change -= OnCamera3ChangeEvent;
+    }
+
+    private void OnCamera3ChangeEvent()
+    {
+        if (Maggy)
+        {
+            pointA = MaggyPoints[1];
+            pointB = MaggyPoints[2];
+
+            StartPathMovement();
+        }
+        else
+        {
+            pointA = MaggyPoints[1];
+            pointB = MaggyPoints[2];
+
+            StartPathMovement();
+        }
+    }
 
     private void Awake()
     {

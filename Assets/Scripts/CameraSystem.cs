@@ -166,6 +166,7 @@ public class CameraSystem : MonoBehaviour
             for (int i = 0; i < shots.Count; i++)
             {
                 currentShotIndex = i;
+                shots[currentShotIndex].StartWalk?.Invoke();
                 yield return StartCoroutine(ExecuteShot(shots[i], i));
                 
                 // Delay between shots
@@ -193,7 +194,8 @@ public class CameraSystem : MonoBehaviour
         
         if (showShotProgressInConsole)
             Debug.Log($"[CameraSystem] Executing Shot {shotIndex + 1}: '{shot.shotName}' ({shot.shotType})");
-        
+
+
         // Execute based on shot type
         switch (shot.shotType)
         {
@@ -239,6 +241,7 @@ public class CameraSystem : MonoBehaviour
         {
             yield return new WaitForSeconds(shot.waitDuration);
         }
+
     }
     
     #endregion
