@@ -232,6 +232,9 @@ MonoBehaviour:
     duration: 5
     shotDescription: Breif overview of track with a little peak to the characters
     shotType: 3
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1709109794}
     endPosition: {fileID: 141059036}
     rotationType: 0
@@ -326,6 +329,9 @@ MonoBehaviour:
     duration: 6
     shotDescription: Breif overview of track with a little peak to the characters
     shotType: 5
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 586218521}
     endPosition: {fileID: 141059036}
     rotationType: 0
@@ -413,6 +419,9 @@ MonoBehaviour:
     duration: 7
     shotDescription: first dialog between characters
     shotType: 0
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1236451897}
     endPosition: {fileID: 141059036}
     rotationType: 2
@@ -501,6 +510,9 @@ MonoBehaviour:
     shotDescription: Dialog 2, camera backs away from characters and hey walk forward
       to the stairs.
     shotType: 5
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1250192015}
     endPosition: {fileID: 141059036}
     rotationType: 1
@@ -589,6 +601,9 @@ MonoBehaviour:
     shotDescription: Characters go up the stairs, camera rotates following them through
       the bridge.
     shotType: 5
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 890301205}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -677,6 +692,9 @@ MonoBehaviour:
     shotDescription: Characters are in the middle of the bridge, back to the camera,
       looking down at the racetrack.
     shotType: 0
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1176820665}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -763,6 +781,9 @@ MonoBehaviour:
     shotDescription: Characters are in the middle of the bridge, a car passes below
       the bridge.
     shotType: 0
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1555778050}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -851,6 +872,9 @@ MonoBehaviour:
     shotDescription: Characters are in the middle of the bridge, after the car passes,
       they have a small dialog.
     shotType: 0
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1176820665}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -937,6 +961,9 @@ MonoBehaviour:
     shotDescription: Characters are walking down the stairs on the other side of
       the bridge, claudio goes in front, the camer moves down with them.
     shotType: 5
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 759709139}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -1025,6 +1052,9 @@ MonoBehaviour:
     shotDescription: Characters are walking off the stairs, walking towards a standee,
       there is a small dialog, one character goes right and the other goes left.
     shotType: 0
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 339685456}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -1112,6 +1142,9 @@ MonoBehaviour:
     duration: 3
     shotDescription: We see the car crossing the finish line.
     shotType: 2
+    StartWalk:
+      m_PersistentCalls:
+        m_Calls: []
     startPosition: {fileID: 1769432509}
     endPosition: {fileID: 1355811812}
     rotationType: 0
@@ -2368,6 +2401,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Version: 9
+  m_ObsoleteRenderingPath: 0
+  m_ObsoleteFrameSettings:
+    overrides: 0
+    enableShadow: 0
+    enableContactShadows: 0
+    enableShadowMask: 0
+    enableSSR: 0
+    enableSSAO: 0
+    enableSubsurfaceScattering: 0
+    enableTransmission: 0
+    enableAtmosphericScattering: 0
+    enableVolumetrics: 0
+    enableReprojectionForVolumetrics: 0
+    enableLightLayers: 0
+    enableExposureControl: 1
+    diffuseGlobalDimmer: 0
+    specularGlobalDimmer: 0
+    shaderLitMode: 0
+    enableDepthPrepassWithDeferredRendering: 0
+    enableTransparentPrepass: 0
+    enableMotionVectors: 0
+    enableObjectMotionVectors: 0
+    enableDecals: 0
+    enableRoughRefraction: 0
+    enableTransparentPostpass: 0
+    enableDistortion: 0
+    enablePostprocess: 0
+    enableOpaqueObjects: 0
+    enableTransparentObjects: 0
+    enableRealtimePlanarReflection: 0
+    enableMSAA: 0
+    enableAsyncCompute: 0
+    runLightListAsync: 0
+    runSSRAsync: 0
+    runSSAOAsync: 0
+    runContactShadowsAsync: 0
+    runVolumeVoxelizationAsync: 0
+    lightLoopSettings:
+      overrides: 0
+      enableDeferredTileAndCluster: 0
+      enableComputeLightEvaluation: 0
+      enableComputeLightVariants: 0
+      enableComputeMaterialVariants: 0
+      enableFptlForForwardOpaque: 0
+      enableBigTilePrepass: 0
+      isFptlEnabled: 0
   clearColorMode: 0
   backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
   clearDepth: 1
@@ -2448,53 +2528,6 @@ MonoBehaviour:
       data1: 0
       data2: 0
   defaultFrameSettings: 0
-  m_Version: 9
-  m_ObsoleteRenderingPath: 0
-  m_ObsoleteFrameSettings:
-    overrides: 0
-    enableShadow: 0
-    enableContactShadows: 0
-    enableShadowMask: 0
-    enableSSR: 0
-    enableSSAO: 0
-    enableSubsurfaceScattering: 0
-    enableTransmission: 0
-    enableAtmosphericScattering: 0
-    enableVolumetrics: 0
-    enableReprojectionForVolumetrics: 0
-    enableLightLayers: 0
-    enableExposureControl: 1
-    diffuseGlobalDimmer: 0
-    specularGlobalDimmer: 0
-    shaderLitMode: 0
-    enableDepthPrepassWithDeferredRendering: 0
-    enableTransparentPrepass: 0
-    enableMotionVectors: 0
-    enableObjectMotionVectors: 0
-    enableDecals: 0
-    enableRoughRefraction: 0
-    enableTransparentPostpass: 0
-    enableDistortion: 0
-    enablePostprocess: 0
-    enableOpaqueObjects: 0
-    enableTransparentObjects: 0
-    enableRealtimePlanarReflection: 0
-    enableMSAA: 0
-    enableAsyncCompute: 0
-    runLightListAsync: 0
-    runSSRAsync: 0
-    runSSAOAsync: 0
-    runContactShadowsAsync: 0
-    runVolumeVoxelizationAsync: 0
-    lightLoopSettings:
-      overrides: 0
-      enableDeferredTileAndCluster: 0
-      enableComputeLightEvaluation: 0
-      enableComputeLightVariants: 0
-      enableComputeMaterialVariants: 0
-      enableFptlForForwardOpaque: 0
-      enableBigTilePrepass: 0
-      isFptlEnabled: 0
 --- !u!114 &1097796545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3237,6 +3270,11 @@ MonoBehaviour:
   m_LightUnit: 0
   m_LuxAtDistance: 1
   m_Intensity: 0
+  m_Version: 13
+  m_ObsoleteShadowResolutionTier: 1
+  m_ObsoleteUseShadowQualitySettings: 0
+  m_ObsoleteCustomShadowResolution: 512
+  m_ObsoleteContactShadows: 0
   m_InnerSpotPercent: 0
   m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
@@ -3355,11 +3393,6 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
-  m_Version: 13
-  m_ObsoleteShadowResolutionTier: 1
-  m_ObsoleteUseShadowQualitySettings: 0
-  m_ObsoleteCustomShadowResolution: 512
-  m_ObsoleteContactShadows: 0
 --- !u!1 &1858072413
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,6 +3527,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1167748281217693831, guid: 236da01a3a0ddb94399e07ecc8b36af9, type: 3}
   m_PrefabInstance: {fileID: 1875191268275933830}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2132093854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.010151
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.000027656555
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -72.442726
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
+      propertyPath: m_Name
+      value: Euzinho
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b7753938a7bd5ef0ea8ed90e824503f3, type: 3}
 --- !u!4 &15283227110797507
 Transform:
   m_ObjectHideFlags: 0
@@ -10358,3 +10448,4 @@ SceneRoots:
   - {fileID: 784004096}
   - {fileID: 1858072414}
   - {fileID: 1610532125}
+  - {fileID: 2132093854}
