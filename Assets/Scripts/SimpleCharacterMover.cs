@@ -149,6 +149,20 @@ public class SimpleCharacterMover : MonoBehaviour
 
     private Animator _animator;
 
+    private bool lookAway;
+
+    public void OnCamera3ChangeEvent()
+    {
+        if (Maggy)
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 30, transform.localEulerAngles.z);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 50, transform.localEulerAngles.z);
+        }
+    }
+
     public void OnCamera4ChangeEvent()
     {
         if (Maggy)
@@ -178,9 +192,11 @@ public class SimpleCharacterMover : MonoBehaviour
             pointA = MaggyPoints[4];
             pointB = MaggyPoints[5];
 
-            moveSpeed = 1.5f;
+            moveSpeed = 1.2f;
 
             transform.position = pointA.position;
+            rotateTowardsTarget = false;
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 90, transform.localEulerAngles.z);
             MoveToPointB();
         }
         else
@@ -188,9 +204,76 @@ public class SimpleCharacterMover : MonoBehaviour
             pointA = ClaudePoints[4];
             pointB = ClaudePoints[5];
 
+            moveSpeed = 1.2f;
+
+            transform.position = pointA.position;
+            rotateTowardsTarget = false;
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 90, transform.localEulerAngles.z);
+            MoveToPointB();
+        }
+    }
+
+    public void OnCamera6ChangeEvent()
+    {
+        if (Maggy)
+        {
+            pointA = MaggyPoints[6];
+            pointB = MaggyPoints[7];
+
             moveSpeed = 1.5f;
 
             transform.position = pointA.position;
+            rotateTowardsTarget = true;
+            lookAway = true;
+            MoveToPointB();
+        }
+        else
+        {
+            pointA = ClaudePoints[6];
+            pointB = ClaudePoints[7];
+
+            moveSpeed = 1.5f;
+
+            transform.position = pointA.position;
+            rotateTowardsTarget = true;
+            lookAway = true;
+            MoveToPointB();
+        }
+    }
+    
+    public void OnCamera8ChangeEvent()
+    {
+        if (Maggy)
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y + 30, transform.localEulerAngles.z);
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 50, transform.localEulerAngles.z);
+        }
+    } 
+    public void OnCamera9ChangeEvent()
+    {
+        if (Maggy)
+        {
+            pointA = MaggyPoints[8];
+            pointB = MaggyPoints[9];
+
+            moveSpeed = 1.5f;
+
+            transform.position = pointA.position;
+            rotateTowardsTarget = true;
+            MoveToPointB();
+        }
+        else
+        {
+            pointA = ClaudePoints[8];
+            pointB = ClaudePoints[9];
+
+            moveSpeed = 1.5f;
+
+            transform.position = pointA.position;
+            rotateTowardsTarget = true;
             MoveToPointB();
         }
     }
@@ -204,6 +287,15 @@ public class SimpleCharacterMover : MonoBehaviour
     public void ChangeAnim(bool isWalking)
     {
         _animator.SetBool("IsWalking", isWalking);
+    }
+
+    public void LookAWAY()
+    {
+        if (lookAway)
+        {
+            rotateTowardsTarget = false;
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 90, transform.localEulerAngles.z);
+        }
     }
     void Start()
     {
