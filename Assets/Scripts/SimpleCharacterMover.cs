@@ -149,6 +149,8 @@ public class SimpleCharacterMover : MonoBehaviour
 
     private Animator _animator;
 
+    private Vector3 rotationDefault;
+
     private bool lookAway;
 
     public void OnCamera3ChangeEvent()
@@ -197,6 +199,7 @@ public class SimpleCharacterMover : MonoBehaviour
             transform.position = pointA.position;
             rotateTowardsTarget = false;
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 90, transform.localEulerAngles.z);
+            rotationDefault = transform.localEulerAngles;
             MoveToPointB();
         }
         else
@@ -209,6 +212,7 @@ public class SimpleCharacterMover : MonoBehaviour
             transform.position = pointA.position;
             rotateTowardsTarget = false;
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y - 90, transform.localEulerAngles.z);
+            rotationDefault = transform.localEulerAngles;
             MoveToPointB();
         }
     }
@@ -259,10 +263,12 @@ public class SimpleCharacterMover : MonoBehaviour
             pointA = MaggyPoints[8];
             pointB = MaggyPoints[9];
 
-            moveSpeed = 1.5f;
+            moveSpeed = 1.2f;
 
             transform.position = pointA.position;
-            rotateTowardsTarget = true;
+            rotateTowardsTarget = false;
+            transform.localEulerAngles = rotationDefault;
+            lookAway = false;
             MoveToPointB();
         }
         else
@@ -270,11 +276,26 @@ public class SimpleCharacterMover : MonoBehaviour
             pointA = ClaudePoints[8];
             pointB = ClaudePoints[9];
 
-            moveSpeed = 1.5f;
+            moveSpeed = 1.2f;
 
             transform.position = pointA.position;
-            rotateTowardsTarget = true;
+            rotateTowardsTarget = false;
+            transform.localEulerAngles = rotationDefault;
+            lookAway = false;
             MoveToPointB();
+        }
+    }
+    
+    public void OnCamera10ChangeEvent()
+    {
+        if (Maggy)
+        {
+            
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, -20, transform.localEulerAngles.z); ;
+        }
+        else
+        {
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, 43, transform.localEulerAngles.z); ;
         }
     }
 

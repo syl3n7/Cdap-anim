@@ -197,75 +197,6 @@ MonoBehaviour:
     m_Start: 38.440105849877
     m_ClipIn: 0
     m_Asset: {fileID: 3290289978210543356}
-    m_Duration: 2.306712018140587
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -5561791467118256045}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: 0
-    m_BlendOutDuration: 0
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0.4599546485260646
-    m_PreExtrapolationTime: 18.77740743717859
-    m_DisplayName: claudio
-  - m_Version: 1
-    m_Start: 41.20677251654365
-    m_ClipIn: 0
-    m_Asset: {fileID: -666301003778065955}
     m_Duration: 1.5924489795918362
     m_TimeScale: 1
     m_ParentTrack: {fileID: -5561791467118256045}
@@ -328,8 +259,8 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 9.491985662424213
-    m_PreExtrapolationTime: 0.4599546485260646
+    m_PostExtrapolationTime: 12.258652329090864
+    m_PreExtrapolationTime: 18.77740743717859
     m_DisplayName: claudio
   - m_Version: 1
     m_Start: 52.2912071585597
@@ -397,166 +328,11 @@ MonoBehaviour:
     m_Recordable: 0
     m_PostExtrapolationMode: 0
     m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 4.906502592007193
-    m_PreExtrapolationTime: 9.491985662424213
-    m_DisplayName: claudio
-  - m_Version: 1
-    m_Start: 59.2
-    m_ClipIn: 0
-    m_Asset: {fileID: 8636356510269509662}
-    m_Duration: 2.833333333333
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -5561791467118256045}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: 0
-    m_BlendOutDuration: 0
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0.18333333333367818
-    m_PreExtrapolationTime: 4.906502592007193
-    m_DisplayName: claudio
-  - m_Version: 1
-    m_Start: 62.21666666666668
-    m_ClipIn: 0
-    m_Asset: {fileID: 8024230327180843397}
-    m_Duration: 1.75
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -5561791467118256045}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: 0
-    m_BlendOutDuration: 0
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: Infinity
-    m_PreExtrapolationTime: 0.18333333333367818
+    m_PreExtrapolationTime: 12.258652329090864
     m_DisplayName: claudio
   m_Markers:
     m_Objects: []
---- !u!114 &-4808259571271667012
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: ffbb22e2a58d243bf883cbafc040c40f, type: 3}
-  m_Loop: 0
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
 --- !u!114 &-2212404902901218717
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -574,27 +350,6 @@ MonoBehaviour:
   m_bufferingTime: 0.1
   m_ClipProperties:
     volume: 1
---- !u!114 &-666301003778065955
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f77d777dcd06448813d3a34c46357a, type: 3}
-  m_Name: ShotPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  m_AutoClipName: 1
-  m_SceneNumber: 4
-  m_ShotName: claudio
-  m_TakeNumber: 14
-  m_Description: 
-  m_Directory: Assets\Takes
-  m_Take: {fileID: 11400000, guid: ed4caab534ed5452f894edc0abd700cd, type: 2}
-  m_IterationBase: {fileID: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,6 +393,23 @@ MonoBehaviour:
   m_Directory: Assets\Takes
   m_Take: {fileID: 11400000, guid: 0f5b56015fbad43a998086c51f54e6fe, type: 2}
   m_IterationBase: {fileID: 0}
+--- !u!114 &654379454919482492
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+  m_Name: AudioPlayableAsset
+  m_EditorClassIdentifier: 
+  m_Clip: {fileID: 8300000, guid: 2f9322980b7082e42a63f164ae209f86, type: 3}
+  m_Loop: 0
+  m_bufferingTime: 0.1
+  m_ClipProperties:
+    volume: 1
 --- !u!114 &742059501300909483
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -659,23 +431,6 @@ MonoBehaviour:
   m_Directory: Assets\Takes
   m_Take: {fileID: 11400000, guid: c00e56889bf6e4b4ba574685d1c34922, type: 2}
   m_IterationBase: {fileID: 0}
---- !u!114 &2601755917407080609
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
-  m_Name: AudioPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Clip: {fileID: 8300000, guid: d4bb30ba1286ec8a587f7d84e413daaf, type: 3}
-  m_Loop: 0
-  m_bufferingTime: 0.1
-  m_ClipProperties:
-    volume: 1
 --- !u!114 &3177284417758256352
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -895,75 +650,6 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Claudio_-02
   - m_Version: 1
-    m_Start: 38.440105849877
-    m_ClipIn: 0
-    m_Asset: {fileID: 2601755917407080609}
-    m_Duration: 2.3067120181405896
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: 7723058448238719616}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: Claudio_-03
-  - m_Version: 1
     m_Start: 52.2912071585597
     m_ClipIn: 0
     m_Asset: {fileID: -2212404902901218717}
@@ -1015,7 +701,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Claudio_-05
   - m_Version: 1
-    m_Start: 41.20677251654365
+    m_Start: 38.440105849877
     m_ClipIn: 0
     m_Asset: {fileID: -9198195251945230331}
     m_Duration: 1.5924489795918368
@@ -1066,10 +752,61 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Claudio_-04
   - m_Version: 1
-    m_Start: 54.891207158559695
+    m_Start: 33.516666666666666
     m_ClipIn: 0
-    m_Asset: {fileID: -4808259571271667012}
-    m_Duration: 0.8196145124716553
+    m_Asset: {fileID: 654379454919482492}
+    m_Duration: 4.0134845346842525
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: 7723058448238719616}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: RaceTrackSounds_-04
+  - m_Version: 1
+    m_Start: 55.4
+    m_ClipIn: 0
+    m_Asset: {fileID: 8573276784816585312}
+    m_Duration: 8.496125
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7723058448238719616}
     m_EaseInDuration: 0
@@ -1133,14 +870,14 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: Claudio_-06
+    m_DisplayName: RaceTrackSounds_-07
   m_Markers:
     m_Objects: []
   m_TrackProperties:
     volume: 1
     stereoPan: 0
     spatialBlend: 0
---- !u!114 &8024230327180843397
+--- !u!114 &8573276784816585312
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1149,36 +886,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f77d777dcd06448813d3a34c46357a, type: 3}
-  m_Name: ShotPlayableAsset
+  m_Script: {fileID: 11500000, guid: 4f10dd60657c6004587f237a7e90f8e4, type: 3}
+  m_Name: AudioPlayableAsset
   m_EditorClassIdentifier: 
-  m_Version: 1
-  m_AutoClipName: 1
-  m_SceneNumber: 13
-  m_ShotName: claudio
-  m_TakeNumber: 17
-  m_Description: 
-  m_Directory: Assets\Takes
-  m_Take: {fileID: 11400000, guid: 12f0ed4a8275a495e8f45b5f74fefa27, type: 2}
-  m_IterationBase: {fileID: 0}
---- !u!114 &8636356510269509662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4f77d777dcd06448813d3a34c46357a, type: 3}
-  m_Name: ShotPlayableAsset
-  m_EditorClassIdentifier: 
-  m_Version: 1
-  m_AutoClipName: 1
-  m_SceneNumber: 10
-  m_ShotName: claudio
-  m_TakeNumber: 16
-  m_Description: 
-  m_Directory: Assets\Takes
-  m_Take: {fileID: 11400000, guid: 6ab50f268ba654cb89e0f9cb08f8e1a2, type: 2}
-  m_IterationBase: {fileID: 0}
+  m_Clip: {fileID: 8300000, guid: e3782f39a8410f24b945df14fc17facd, type: 3}
+  m_Loop: 0
+  m_bufferingTime: 0.1
+  m_ClipProperties:
+    volume: 1

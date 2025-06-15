@@ -2003,6 +2003,6 @@ MonoBehaviour:
   m_EyeAngleOffset: {x: 0, y: 0}
   m_EyeSmoothing: 0.1
   m_HeadPosition: Armature/parent/spine/chest/upper chest/neck/head
-  m_HeadRotation: Armature/parent/spine/chest/upper chest/neck/head
+  m_HeadRotation: 
   m_HeadSmoothing: 0.1
   m_BlendShapeSmoothing: 0.1
